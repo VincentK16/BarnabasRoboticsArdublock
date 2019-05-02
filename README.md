@@ -9,4 +9,5 @@ All our code is released under the same License as Ardublock (GPL 3.0).
 Please contact Tom Lauwers (tom@hummingbirdkit.com) for more information.
 
 Final customized version:
+
 ![Ardublock_Barnabas](https://user-images.githubusercontent.com/3338753/57070970-9bf36c00-6d0b-11e9-8785-7a21d09d2217.png)
