@@ -1435,12 +1435,17 @@
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" label="cm" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="trigger #">
-					<DefaultArg genus-name="number" label="1" />
+					<DefaultArg genus-name="number" label="3" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="echo #">
-					<DefaultArg genus-name="number" label="2" />
+					<DefaultArg genus-name="number" label="4" />
 				</BlockConnector>
 			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/barnabasrobotic/ardublockIcon_ultrasonic.png</FileLocation>
+				</Image>
+			</Images>
 		</BlockGenus>
 
 		<BlockGenus name="LCD_I2C_Sainsmart_20by4" kind="command" color="205 133 63" initlabel="bg.LCD_I2C_Sainsmart_20by4">
@@ -3021,7 +3026,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="number" label="0" />
+					<DefaultArg genus-name="number" label="9" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.angle">
 					<DefaultArg genus-name="number" label="1" />
@@ -8247,6 +8252,7 @@
 					<BlockGenusMember>tone</BlockGenusMember>
 				  <BlockGenusMember>df_servo</BlockGenusMember>
 				  <BlockGenusMember>no_tone</BlockGenusMember>
+					<BlockGenusMember>ultrasonic</BlockGenusMember>
 				<!--<BlockGenusMember>df_led_pwm</BlockGenusMember>
 				<BlockGenusMember>df_digital_push_button</BlockGenusMember>
 				<BlockGenusMember>df_digital_viberation_sensor</BlockGenusMember>
