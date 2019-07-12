@@ -11,9 +11,9 @@ import com.ardublock.util.PropertiesReader;
 public class TranslatorBlockFactory
 {
 	private static final String BLOCK_MAPPING = "com/ardublock/block/block-mapping.properties";
-	
+
 	private Map<String, String> shortClassName;
-	
+
 	public TranslatorBlockFactory()
 	{
 		shortClassName = new HashMap<String, String>();
@@ -29,13 +29,16 @@ public class TranslatorBlockFactory
 		shortClassName.put("tone", "com.ardublock.translator.block.ToneBlock");
 		shortClassName.put("toneTime", "com.ardublock.translator.block.ToneTimeBlock");
 		shortClassName.put("noTone", "com.ardublock.translator.block.NoToneBlock");
+		//new
+		shortClassName.put("newButton", "com.ardublock.translator.block.ButtonBlock");
+		//
 	}
-	
-	
+
+
 	public TranslatorBlock buildTranslatorBlock(Translator translator, Long blockId, String blockName, String codePrefix, String codeSuffix, String label)
 	{
 //		System.out.println("block name : " + blockName + " captured");
-		
+
 		String className = PropertiesReader.getValue(blockName, BLOCK_MAPPING);
 		//System.out.println("className: " + className);
 		String longName = shortClassName.get(className);
@@ -43,7 +46,7 @@ public class TranslatorBlockFactory
 		{
 			className = longName;
 		}
-		
+
 		try
 		{
 			Class blockClass = Class.forName(className);
@@ -65,10 +68,10 @@ public class TranslatorBlockFactory
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			System.err.println(blockName + " not suitable class!");
-		}		
+		}
 
 		System.err.println(blockName + " not found!");
-		
+
 		return null;
 	}
 }
