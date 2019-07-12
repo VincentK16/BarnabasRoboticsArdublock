@@ -8247,6 +8247,11 @@
 				<BlockGenusMember>digital-high</BlockGenusMember>
 				<BlockGenusMember>true</BlockGenusMember>
 				<BlockGenusMember>false</BlockGenusMember>
+				
+				<!--new-->
+				<BlockGenusMember>digital-pressed</BlockGenusMember>
+				<BlockGenusMember>digital-unpressed</BlockGenusMember>
+
 				<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
 				<BlockGenusMember>variable_number_double</BlockGenusMember>
 				<BlockGenusMember>number_double</BlockGenusMember>

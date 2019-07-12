@@ -18,7 +18,7 @@ public class zzz extends TranslatorBlock
       NumberBlock pinNumberBlock = (NumberBlock)pinBlock;
 
       String number = pinNumberBlock.toCode();
-      String setupCode = " pinMode()" + number + ", INPUT_PULLUP;";
+      String setupCode = " pinMode(" + number + "), INPUT_PULLUP;";
       translator.addSetupCommand(setupCode);
 
       TranslatorBlock buttonPress = this.getRequiredTranslatorBlockAtSocket(1);
