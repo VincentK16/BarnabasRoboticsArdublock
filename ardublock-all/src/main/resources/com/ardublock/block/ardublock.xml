@@ -2,6 +2,9 @@
 <!DOCTYPE BlockLangDef SYSTEM "lang_def.dtd">
 <!-- This describes every BlockGenus, BlockDrawer, BlockFamilies in Starlogo-TNG. Note: For BlockGenus, if genus A relies on another genus B, that genus B must be specified in the xml 
 	file before genus A is specified./ We impose this requirement so that sanity checks can be made regarding the validity of a default argument when the BlockGenuses are first loaded. -->
+
+<!-- To eliminate tabs, comment out the  <BlockDrawer> that you do not need -->
+
 <BlockLangDef>
 
 	<BlockConnectorShapes>
@@ -428,7 +431,42 @@
 				</Image>
 			</Images>
 		</BlockGenus>
-
+<!-- New: -->
+<!--BlockGenus properties:
+     name=(reference to bg.whatever from ardublock.properties)
+     kind=
+     color="hex code"
+     initlabel=
+ connector-kind=socket/plug
+ label=name of socket(can be reference to ardublock.properties)
+ -->
+<!--BlockConnectors properties:
+     connector-type=number/boolean/string/poly/number-list
+     connector-kind=socket/plug
+     label=name of socket(can be reference to ardublock.properties)
+ -->
+        <BlockGenus name="button" kind="data" color="255 102 0" initlabel="newButton">
+            <description>
+                <text>This button does nothing yet.
+                </text>
+            </description>
+            <BlockConnectors>
+                <BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
+                    <DefaultArg genus-name="number" label="6" />
+                </BlockConnector>
+                <BlockConnector connector-type="boolean" connector-kind="socket" label="bc.status">
+                    <DefaultArg genus-name="button-pressed" label="PRESSED" />
+                </BlockConnector>
+                <BlockConnector connector-type="boolean" connector-kind="plug" />
+            </BlockConnectors>
+<!--            <Images>
+                <Image>
+                    <FileLocation>com/ardublock/block/barnabasrobotic/ardublockIcon_notone.png</FileLocation>
+                </Image>
+            </Images> -->
+        </BlockGenus>
+<!-- New -->
+ 
 		<!--****************** Mathematical Operators *************** -->
 
 		<BlockGenus name="addition" kind="function" initlabel="bg.addition" color="149 193 31">
@@ -1113,6 +1151,30 @@
 				<BlockConnector connector-type="number-list" connector-kind="plug" position-type="single" />
 			</BlockConnectors>
 		</BlockGenus>
+<!--New-->
+        <BlockGenus name="button-pressed" kind="data" color="204 153 255"
+            initlabel="buttonPressed">
+            <description>
+                <text>
+                    Pin PRESSED
+                </text>
+            </description>
+            <BlockConnectors>
+                <BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
+            </BlockConnectors>
+        </BlockGenus>
+        
+        <BlockGenus name="button-notpressed" kind="data" color="204 153 255" initlabel="buttonNotPressed">
+            <description>
+                <text>
+                    Pin NOT PRESSED
+                </text>
+            </description>
+            <BlockConnectors>
+                <BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
+            </BlockConnectors>
+        </BlockGenus>
+<!--New-->
 
 		<BlockGenus name="digital-high" kind="data" color="204 153 255" initlabel="bg.digital-high">
 			<description>
@@ -7878,6 +7940,12 @@
 	</BlockGenuses>
 
 	<BlockFamilies>
+<!--New-->
+        <BlockFamily>
+            <FamilyMember>button-pressed</FamilyMember>
+            <FamilyMember>button-notpressed</FamilyMember>
+        </BlockFamily>
+<!--New-->
 		<BlockFamily>
 			<FamilyMember>digital-high</FamilyMember>
 			<FamilyMember>digital-low</FamilyMember>
@@ -8199,6 +8267,10 @@
 				<BlockGenusMember>variable_digital</BlockGenusMember>
 				<BlockGenusMember>digital-low</BlockGenusMember>
 				<BlockGenusMember>digital-high</BlockGenusMember>
+<!--New-->
+                <BlockGenusMember>button-pressed</BlockGenusMember>
+                <BlockGenusMember>button-notpressed</BlockGenusMember>
+<!--New-->
 				<BlockGenusMember>true</BlockGenusMember>
 				<BlockGenusMember>false</BlockGenusMember>
 				<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
@@ -8253,6 +8325,7 @@
 				  <BlockGenusMember>df_servo</BlockGenusMember>
 				  <BlockGenusMember>no_tone</BlockGenusMember>
 					<BlockGenusMember>ultrasonic</BlockGenusMember>
+<!-- New: -->           <BlockGenusMember>button</BlockGenusMember>
 				<!--<BlockGenusMember>df_led_pwm</BlockGenusMember>
 				<BlockGenusMember>df_digital_push_button</BlockGenusMember>
 				<BlockGenusMember>df_digital_viberation_sensor</BlockGenusMember>
