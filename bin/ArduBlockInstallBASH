@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo Finding current directory...
+cd "$(dirname "$0")"
+
+echo Copying .jar to correct location...
+mkdir -p ~/Documents/Arduino/tools/ArduBlockTool/tool
+cp ardublock-all-withNewPing.jar ~/Documents/Arduino/tools/ArduBlockTool/tool/
+
+echo Installing new libraries...
+mkdir -p ~/Documents/Arduino/libraries
+cp -r NewPing ~/Documents/Arduino/libraries/
+
+
+
+
+
+
